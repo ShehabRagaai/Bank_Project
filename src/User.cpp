@@ -26,6 +26,16 @@ void User::setBalance(int32_t blc)
     balance = blc;
 }
 
+void User::setpassword(std::string pass)
+{
+    password=pass;
+}
+
+std::string User::getpassword()
+{
+    return password;
+}
+
 std::vector<UserTransaction> User::getTransactionHsitory()
 {
     return TransactionHistory;

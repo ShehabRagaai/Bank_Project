@@ -27,7 +27,7 @@ class UserTransaction
 class User 
 {
     private:
-    
+    std::string password; 
     std::string username;
     std::string  Accountnumber;
     std::string fullname;
@@ -42,6 +42,7 @@ class User
     void setAccountNumber(std::string Accnum);
     void setAge(uint8_t age);
     void setBalance(int32_t blc);
+    void setpassword(std::string pass);
     void addTransaction(UserTransaction trans);
     
     std::string getFullname();
@@ -49,6 +50,8 @@ class User
     std::string getAccountNumber();
     uint8_t getAge();
     int32_t getBalance();
+    std::string getpassword();
+
     std::vector<UserTransaction> getTransactionHsitory();
 
     nlohmann::json tojson();

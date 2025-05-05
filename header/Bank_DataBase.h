@@ -14,31 +14,34 @@
 class Bank_DataBase
 {
     private:
-    std::map<std::string , User> PasstoUser_;
-	std::map<std::string , User*> AcctoUser_;
-	std::map<std::string , User*> usrnametoUser_;
+	std::map<std::string , User> usrnametoUser_;
+    std::map<std::string , User*> AcctoUser_;
+	
 	
     
 	public:
 	
 	bool IsUserFound(std::string password , std::string username);
 
-    void setNewUser(std::string password , User& user);
-	
-	void deleteuser(std::string Accnum);
+    bool setNewUser(std::string usrname , User& user);
+
+	bool deleteuser(std::string Accnum);
 	
 	void SetTransaction(std::string Accnum , int32_t amount);
+
+    void updateUser(std::string accountNumber, User updatedUser);
 	
 	std::vector<UserTransaction> getTransaction(std::string Accnum , uint16_t count);
 	
-	void getbankbalance(std::string Accnum);
 	
-	User getUser(std::string password);
+	bool getUser(User& result , std::string password , std::string usrname);
+
+    std::vector <User> getallusers();
 	
-	std::string getAccountNumber(std::string Username);
-	
-    
-	
+	bool getAccountNumber(std::string result,std::string Username);
+
+    bool getAccountBalance(int32_t& result ,std::string Accnum);
+
 	nlohmann::json tojson();
 	
 
