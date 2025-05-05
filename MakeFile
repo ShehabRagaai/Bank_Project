@@ -1,0 +1,31 @@
+#Configrations
+files := main.cpp src/*.cpp
+include_path:=header/
+build_dir := build
+PATH_TO_OBJECT:=$(build_dir)/Bank_Executable
+compiler:=g++
+
+
+#Build the project and get executable file Bank_Executable
+.PHONY:build
+
+build:
+
+	@mkdir -p $(build_dir)
+	@$(compiler) -std=c++14 $(files) -I $(include_path) -o $(PATH_TO_OBJECT)
+	@echo "Build Done  Successfully"
+
+#Remove executable file Bank_Executable
+clean:
+	@rm -r $(build_dir)
+
+#Help to know makefile rules
+help:
+	@echo "MakeFile supported rules :"
+	@echo "build    To build project and generate executable file in build folder"
+	@echo "clean    To Remove build folder"
+	
+   
+
+
+
